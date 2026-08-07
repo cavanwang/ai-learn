@@ -1,0 +1,18 @@
+# Rust build output (workspace-shared target dirs)
+/target
+/token_embedding/target
+**/target/
+
+# Rust toolchain backup files
+*.rs.bk
+
+# Large training corpora — intentionally not tracked.
+# Only token_embedding/corpus_tiny.txt is committed as a demo corpus.
+/token_embedding/corpus_large.txt
+/token_embedding/corpus_medium.txt
+/token_embedding/corpus_small.txt
+/token_embedding/mixed_corpus.txt
+/token_embedding/cmn.txt
+/token_embedding/eng.txt
+/token_embedding/cmn_sentences.tsv
+/token_embedding/eng_sentences.tsv
