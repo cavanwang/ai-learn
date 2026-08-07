@@ -1,0 +1,18 @@
+# Rust Workspace 根配置
+#
+# 这是一个"虚拟工作空间"(virtual workspace)：根目录没有自己的 [package]，
+# 仅通过 [workspace] 表统一管理下面的多个子 crate。
+#
+# 子项目各自有独立的 Cargo.toml 和 main.rs，可单独运行：
+#   cargo run -p ai_token_embedding
+#   cargo run -p <其他子项目名>
+#
+# 共享的好处：
+#   - 共享 target/ 目录（避免重复编译依赖）
+#   - 共享 Cargo.lock（依赖版本统一锁定，便于复现）
+
+[workspace]
+members = [
+    "token_embedding",
+]
+resolver = "2"
