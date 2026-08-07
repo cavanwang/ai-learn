@@ -40,6 +40,13 @@ A GPT-2 style **byte-level BPE (Byte Pair Encoding) tokenizer** with a simulated
 embedding lookup, demonstrating the front-end of the LLM pipeline: how raw text
 becomes token ids and then embedding vectors.
 
+**What BPE does**: BPE (Byte Pair Encoding) is the subword tokenization
+algorithm used by GPT-2/3/4. It iteratively merges the most frequent adjacent
+byte pairs in a corpus to build a vocabulary of subword units — finer than
+whole words, more meaningful than single bytes — balancing vocabulary size
+with full coverage of any text. This is the first step that turns raw text
+into the token ids a model consumes.
+
 Three stages:
 
 1. **Training** (`train_bpe`) — learn merge rules + vocabulary from a corpus
@@ -61,7 +68,7 @@ cargo run -p ai_token_embedding
 cargo run -p ai_token_embedding -- corpus_tiny.txt 5000
 ```
 
-See `token_embedding/BPE算法逻辑.md` for the algorithm walkthrough.
+**Algorithm docs**: [BPE算法逻辑.md](token_embedding/BPE算法逻辑.md) — detailed walkthrough of the BPE algorithm.
 
 ## Working with the workspace
 

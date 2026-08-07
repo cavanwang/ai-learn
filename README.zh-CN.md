@@ -38,6 +38,10 @@ ai-learn/
 GPT-2 风格的 **byte-level BPE（字节对编码）分词器**，附带模拟的 embedding 查表，
 演示 LLM 流水线的前端：原始文本如何变成 token id，再变成 embedding 向量。
 
+**BPE 的作用**：BPE（字节对编码）是 GPT-2/3/4 等大模型使用的子词分词算法。它通过迭代合并
+语料中最高频的相邻字节对来构建子词词表——切分粒度比"整词"更细、比"单字节"更有语义，在控制
+词表大小的同时覆盖任意文本。这是大模型把原始文本转成 token id 的第一步。
+
 覆盖三个阶段：
 
 1. **训练**（`train_bpe`）—— 从语料学习合并规则和词表
@@ -59,7 +63,7 @@ cargo run -p ai_token_embedding
 cargo run -p ai_token_embedding -- corpus_tiny.txt 5000
 ```
 
-算法详解见 `token_embedding/BPE算法逻辑.md`。
+**算法文档**：[BPE算法逻辑.md](token_embedding/BPE算法逻辑.md) —— BPE 算法的详细讲解。
 
 ## workspace 常用操作
 
